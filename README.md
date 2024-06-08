@@ -168,7 +168,7 @@ memory usage: 80.6+ KB
 ### 2.6: Accessing the 2nd dataset (2021) from SQL Server
 
 
-**2.6.1: Following the same process for the 2nd dataset (2021)**
+**2.6.1: Following the same process for the 2nd dataset (2021) as the 1st dataset**
 *The realisation was that there was so much similarity with 1st dataset (2020) interms of columns names of the dataset*
 
 **Using the same process as the 1st dataset we load, Read and Clean the dataset**
@@ -223,6 +223,120 @@ memory usage: 87.4+ KB
 ```
 
 ### 2.7: Accessing the 3nd dataset (2018) from OneDrive 
+
+*Using pd.read_excel we load our dataset which we dounloaded from OneDrive*
+
+**2.7.1: Following the same process for the 3rd dataset (2018) as the 2nd (2021) dataset**
+*The realisation was that there was so much similarity with 1st and 2nd datasets (2020 & 2021) in-terms of column names of the dataset*
+
+**Using the same process as the 1st dataset we load, Read and Clean the dataset**
+
+**2.7.2: what we started with**
+```dotnetcli
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 89 entries, 0 to 88
+Data columns (total 9 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   Company/Brand  89 non-null     object 
+ 1   Founded        60 non-null     float64
+ 2   HeadQuarter    70 non-null     object 
+ 3   Sector         84 non-null     object 
+ 4   What it does   89 non-null     object 
+ 5   Founders       86 non-null     object 
+ 6   Investor       89 non-null     object 
+ 7   Amount($)      89 non-null     object 
+ 8   Stage          43 non-null     object 
+dtypes: float64(1), object(8)
+memory usage: 6.4+ KB
+```
+
+**2.7.3: Findings**
+        -There are no dulpicated rows that need to be dropped
+        -There are missing values in the 'Founded', 'HeadQuarter','Founders', Investor','Sector' and 'Stage' Columns
+        -Founded Column need to be converted to an integer 
+        -Sector column needs to be converted to category datatype 
+        -Amount Column name has dollar sign unlike other column names($),has 'Undisclosed' values, and needs to be converted to float datatype 
+        -We will add an 'Year' column
+
+
+**2.7.4: After Cleaning**
+```dotnetcli
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 89 entries, 0 to 88
+Data columns (total 10 columns):
+ #   Column         Non-Null Count  Dtype   
+---  ------         --------------  -----   
+ 0   Company_Brand  89 non-null     object  
+ 1   Founded        89 non-null     int32   
+ 2   HeadQuarter    89 non-null     object  
+ 3   Sector         89 non-null     object  
+ 4   What_it_does   89 non-null     object  
+ 5   Founders       89 non-null     object  
+ 6   Investor       89 non-null     object  
+ 7   Amount         89 non-null     float64 
+ 8   Stage          89 non-null     category
+ 9   Year           89 non-null     int64   
+dtypes: category(1), float64(1), int32(1), int64(1), object(6)
+memory usage: 6.8+ KB
+```
+
+### 2.8 : Accessing the 4th dataset (2019) from the GitHub Repository
+*Using pd.read_csv we load our dataset which we downloaded from the GitHub Repository*
+
+
+**2.8.1: Following the same process for the 4th dataset (2019) as the 1st,2nd & 3rd datasets (2020, 2021, 2018) dataset**
+*The realisation was that there was not so much similarity with 1st and 2nd & 3rd datasets (2020, 2021, 2018) in-terms of column names of the dataset also the Columns in this particular year were fewer*
+*This dataset also has no missing values only the datatypes need to be converted for some columns*
+
+**Using the same process as the 1st dataset we load, Read, Explore and Clean the dataset**
+
+**2.8.2: what we started with**
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 526 entries, 0 to 525
+Data columns (total 6 columns):
+ #   Column         Non-Null Count  Dtype 
+---  ------         --------------  ----- 
+ 0   Company Name   526 non-null    object
+ 1   Industry       526 non-null    object
+ 2   Round/Series   526 non-null    object
+ 3   Amount         526 non-null    object
+ 4   Location       526 non-null    object
+ 5   About Company  526 non-null    object
+dtypes: object(6)
+memory usage: 24.8+ KB
+```
+
+**2.8.3: Findings**
+         - There was need to remaname the column names to match the first 3 datasets 
+         - The Round/Series which is converted to Stage Column had links and 'Undisclosed' values that need to be replaced  
+         - The Industry which is converted to Sector colum, need spliting of its values to match the other 3 datasets formats and categorise them just as the above 3 datasets
+         - This dataset has 1 duplicated row 
+         - The Amount Colum has both values in Dollars and Rupees which need to be converted all to dollars. Non mumeric values such as ('$' ',') need to be removed and '-' values replaced 
+         - Add 'Year' Column
+         
+
+
+**2.8.4: After Cleaning**
+```dotnetcli
+<class 'pandas.core.frame.DataFrame'>
+Index: 525 entries, 0 to 525
+Data columns (total 7 columns):
+ #   Column         Non-Null Count  Dtype   
+---  ------         --------------  -----   
+ 0   Company_Brand  525 non-null    object  
+ 1   Sector         525 non-null    object  
+ 2   Stage          525 non-null    category
+ 3   Amount         525 non-null    float64 
+ 4   HeadQuarter    525 non-null    object  
+ 5   What_it_does   525 non-null    object  
+ 6   Year           525 non-null    int64   
+dtypes: category(1), float64(1), int64(1), object(4)
+memory usage: 29.9+ KB
+```
+
+
 
 
 
