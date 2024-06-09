@@ -406,6 +406,46 @@ Which sectors have received the most funding, and how does the funding distribut
 
 *While retail sector has a steady increase in funding from 2018 to 2020*
 
+**After answering all the 8 analytical questions we converted our combined dataset to csv for deployment into Power Bi**
+```dotnetcli
+df_combined.to_csv('clean_combined_LP1dataset.csv', index= False)
+```
+## 6.0 Deployment 
+*Here is a link to the Power Bi Dashboard which we used for deployment*
+<https://app.powerbi.com/view?r=eyJrIjoiZjdhZTM3ZjAtZTQ0YS00MzM1LWJkMjMtYWRjNjkwNWNjZDhkIiwidCI6IjQ0ODdiNTJmLWYxMTgtNDgzMC1iNDlkLTNjMjk4Y2I3MTA3NSJ9>
+
+*A pictoral view of the same*
+
+![Reference Image](/LP1_PowerBi-Dahboard.PNG)
+
+*Here is a medium write-up for puting more words to figures. Incase its your thing click below*
+
+## 7.0 As we wrap-up :tada: 
+**7.1 Summarry**
+This deep and detailed README file gives a step by step understaning and guide over a project titled Viability of setting a startup in India. It has project objective, hypothesis testing, analytical questions and instructions with snipets of the project highlighted.
+It goes an extra mile to give a glimpse of the deployment methods used in this project.
+
+**7.2 Acknowledgment**
+lots of appreciation to my tutors at Azubi Africa COHORT 7, My fellow students in DAP7 for being resourceful throughout this journey.
+Special thanks to team Ireland and amazing, thought provoking and dedicated team to work with.
+
+**7.3 How to Contribute to project**
+pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change 
+
+please make sure to update tests as appropriate.
+
+**7.4 licence**
+[MIT]
+(https://choosealicense.com.com/licenses/mit/)
+
+
+
+
+
+
+
+
+
 
 
 
