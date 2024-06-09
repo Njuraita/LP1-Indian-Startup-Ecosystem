@@ -336,6 +336,89 @@ dtypes: category(1), float64(1), int64(1), object(4)
 memory usage: 29.9+ KB
 ```
 
+## 3.0: Data Preparation
+*Cleaning of our data was done after each of the datasets. In this phase we concatenate our data*
+```dotnetcli
+# Combine DataFrames
+df_combined = pd.concat([data, data2, data3, data4], ignore_index=True)
+
+df_combined.head()
+```
+
+**3.1: Once our Dataset is concated, we go ahead to Expore our dataset using previously used functions such as '.head()',  '.shape', '.isnull', '.duplicated', '.desribe()', '.unique()', '.value_counts()'**
+
+
+**3.1.1: what we had after concating**
+```dotnetcli
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2811 entries, 0 to 2810
+Data columns (total 10 columns):
+ #   Column         Non-Null Count  Dtype         
+---  ------         --------------  -----         
+ 0   Company_Brand  2811 non-null   object        
+ 1   Founded        2286 non-null   float64       
+ 2   HeadQuarter    2811 non-null   object        
+ 3   Sector         2811 non-null   object        
+ 4   What_it_does   2811 non-null   object        
+ 5   Founders       2286 non-null   object        
+ 6   Investor       2286 non-null   object        
+ 7   Amount         2811 non-null   float64       
+ 8   Stage          2811 non-null   object        
+ 9   Year           2811 non-null   datetime64[ns]
+dtypes: datetime64[ns](1), float64(2), object(7)
+memory usage: 219.7+ KB
+```
+**3.1.2: Findings**
+      - There are no duplicates in our combined dataset
+      - All columns concated successfully and all column names could be read with their values 
+      - Founded, Founders and Investor column still had missing values. But since this are not primary inicators on the success of the project we proceed as they are. We could also clean in Power Bi 'Transform Data'
+      - Datatypes in all columns are as they should be
+      
+## 4.0: Hypothesis Testing
+*We perform a hypothesis testing using Amova in statsmodel module*
+
+**4.1: Findings**
+```dotnetcli
+                 sum_sq      df         F  PR(>F)
+C(Sector)  2.801213e+20   547.0  0.041725     1.0
+C(Stage)   2.054703e+20    71.0  0.235794     1.0
+Residual   2.692741e+22  2194.0       NaN     NaN
+P-value for Sector: 0.9999999999999999
+P-value for Stage: 0.9999999999961665
+Fail to reject the null hypothesis for Sector: No significant difference in funding across different sectors.
+Fail to reject the null hypothesis for Stage: No significant difference in funding across different stages.
+```
+**4.2: Interpretation**
+*The output suggests that there is no significant difference in funding across different sectors and stages of startups, according to the ANOVA test performed. However, the p-value for the Sector factor (0.042076) is lower than the typical significance level of 0.05, which could indicate some potential difference in funding across sectors, but this difference is not statistically significant based on the chosen significance level*
+
+## 5.0 Answering the analytical questions 
+
+*Among the analytical questions we were looking to answer, was:*
+
+*Sector Analysis:
+Which sectors have received the most funding, and how does the funding distribution vary across sectors?*
+
+![Reference Image](/Top%20Sector%20by%20Funding%20Amount)
+
+*Finetech sector recieved the highest funding of 150 Billion*
+
+![Reference Image](/Funding%20Amount%20Distribution%20Among%20Sector)
+
+*While retail sector has a steady increase in funding from 2018 to 2020*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
