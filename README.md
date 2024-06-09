@@ -436,7 +436,7 @@ please make sure to update tests as appropriate.
 
 **7.4 licence**
 [MIT]
-(https://choosealicense.com.com/licenses/mit/)
+(https://choosealicense.com/licenses/mit/)
 
 
 
